@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fantastic-sunburst-6b52a4.netlify.app/sitemap.xml

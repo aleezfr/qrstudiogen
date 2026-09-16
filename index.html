@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8XFE592J6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S8XFE592J6');
+</script>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="npxNkIAEqGh9HVTb2X1JfktKl0dsZ-Eme610bR7GVUo" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>QR Studio — QR Code Generator & Scanner</title>
+<meta name="description" content="Scan any QR code instantly and create your own — for links, Wi-Fi, contacts, and more. Fast, private, and works offline.">
+<link rel="canonical" href="https://fantastic-sunburst-6b52a4.netlify.app/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QR Studio">
+<meta property="og:title" content="QR Studio — QR Code Generator & Scanner">
+<meta property="og:description" content="Scan any QR code instantly and create your own — for links, Wi-Fi, contacts, and more. Fast, private, and works offline.">
+<meta property="og:url" content="https://fantastic-sunburst-6b52a4.netlify.app/">
+<meta property="og:image" content="https://fantastic-sunburst-6b52a4.netlify.app/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QR Studio — QR Code Generator & Scanner">
+<meta name="twitter:description" content="Scan any QR code instantly and create your own — for links, Wi-Fi, contacts, and more. Fast, private, and works offline.">
+<meta name="twitter:image" content="https://fantastic-sunburst-6b52a4.netlify.app/icons/icon-512.png">
+<meta name="theme-color" content="#2563EB">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QR Studio",
+  "url": "https://fantastic-sunburst-6b52a4.netlify.app/",
+  "description": "Scan any QR code instantly and create your own — for links, Wi-Fi, contacts, and more. Fast, private, and works offline.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ali Zafar"
+  }
+}
+</script>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="QR Studio">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<defs>
+<symbol id="i-camera" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 7l1.3-2.2A2 2 0 0 1 11 3.8h2a2 2 0 0 1 1.7 1L16 7"/>
+  <rect x="3" y="7" width="18" height="13" rx="2.2"/>
+  <circle cx="12" cy="13.6" r="3.6"/>
+</symbol>
+<symbol id="i-qr" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="3" width="7" height="7" rx="1.2"/>
+  <rect x="14" y="3" width="7" height="7" rx="1.2"/>
+  <rect x="3" y="14" width="7" height="7" rx="1.2"/>
+  <rect x="5.3" y="5.3" width="2.4" height="2.4" fill="#111" stroke="none"/>
+  <rect x="16.3" y="5.3" width="2.4" height="2.4" fill="#111" stroke="none"/>
+  <rect x="5.3" y="16.3" width="2.4" height="2.4" fill="#111" stroke="none"/>
+  <rect x="14.5" y="14.5" width="2.8" height="2.8" fill="#111" stroke="none"/>
+  <rect x="18.3" y="14.5" width="2.7" height="2.7" fill="#111" stroke="none"/>
+  <rect x="14.5" y="18.3" width="2.7" height="2.7" fill="#111" stroke="none"/>
+  <rect x="18.3" y="18.3" width="2.7" height="2.7" fill="#111" stroke="none"/>
+</symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9"/>
+  <path d="M12 7.5v5l3.3 2"/>
+</symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="4" y1="6" x2="20" y2="6"/><circle cx="9" cy="6" r="2.1" fill="#fff"/>
+  <line x1="4" y1="12" x2="20" y2="12"/><circle cx="15" cy="12" r="2.1" fill="#fff"/>
+  <line x1="4" y1="18" x2="20" y2="18"/><circle cx="7" cy="18" r="2.1" fill="#fff"/>
+</symbol>
+<symbol id="i-share" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="6" cy="12" r="2.3"/><circle cx="18" cy="5.5" r="2.3"/><circle cx="18" cy="18.5" r="2.3"/>
+  <line x1="8" y1="10.8" x2="16" y2="6.7"/><line x1="8" y1="13.2" x2="16" y2="17.3"/>
+</symbol>
+<symbol id="i-copy" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3.5" y="3.5" width="12" height="12" rx="2"/>
+  <path d="M8 20.5h9a2.5 2.5 0 0 0 2.5-2.5V9"/>
+</symbol>
+<symbol id="i-download" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3v12"/><path d="M7.5 10.5L12 15l4.5-4.5"/><path d="M4.5 19h15"/>
+</symbol>
+<symbol id="i-close" viewBox="0 0 24 24" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round">
+  <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+</symbol>
+<symbol id="i-check" viewBox="0 0 24 24" stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M5 13l4.5 4.5L19 7"/>
+</symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 8.5C7 5 17 5 21 8.5"/>
+  <path d="M6.2 12.2c2.9-2.5 8.7-2.5 11.6 0"/>
+  <path d="M9.4 16c1.6-1.4 3.6-1.4 5.2 0"/>
+  <circle cx="12" cy="19.2" r="1.1" fill="#111" stroke="none"/>
+</symbol>
+<symbol id="i-link" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9.5 14.5l5-5"/>
+  <path d="M13 6l1.2-1.2a3.6 3.6 0 0 1 5.1 5.1L18 11.1"/>
+  <path d="M11 18l-1.2 1.2a3.6 3.6 0 0 1-5.1-5.1L6 12.9"/>
+</symbol>
+<symbol id="i-person" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="8" r="3.3"/>
+  <path d="M5 20a7 7 0 0 1 14 0"/>
+</symbol>
+<symbol id="i-phone" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="7" y="2.5" width="10" height="19" rx="2.2"/>
+  <line x1="11" y1="18" x2="13" y2="18"/>
+</symbol>
+<symbol id="i-mail" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="5" width="18" height="14" rx="2.2"/>
+  <path d="M3.5 6.5l8.5 6.2 8.5-6.2"/>
+</symbol>
+<symbol id="i-text" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="17" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+</symbol>
+<symbol id="i-flash" viewBox="0 0 24 24" fill="#111" stroke="none">
+  <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/>
+</symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M15 5.5l-6.5 6.5 6.5 6.5"/>
+</symbol>
+<symbol id="i-upload" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21V9"/><path d="M7.5 13.5L12 9l4.5 4.5"/><path d="M4.5 5h15"/>
+</symbol>
+<symbol id="i-trash" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 7h16"/><path d="M9 7V4.3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V7"/>
+  <path d="M6 7l1 12.3a2 2 0 0 0 2 1.9h6a2 2 0 0 0 2-1.9L18 7"/>
+</symbol>
+<symbol id="i-image" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="4" width="18" height="16" rx="2.2"/>
+  <circle cx="8.5" cy="9.5" r="1.6" fill="#111" stroke="none"/>
+  <path d="M4 17l5-5 4 4 3-3 4 4"/>
+</symbol>
+<symbol id="i-flip" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 12a8 8 0 0 1 13.9-5.5L20 8.5"/>
+  <path d="M20 4.5v4h-4"/>
+  <path d="M20 12a8 8 0 0 1-13.9 5.5L4 15.5"/>
+  <path d="M4 19.5v-4h4"/>
+</symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="4"/>
+  <path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"/>
+</symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20 13.6A8.2 8.2 0 1 1 10.4 4a6.6 6.6 0 0 0 9.6 9.6z"/>
+</symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="#111" stroke="none">
+  <path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8 6.8 19.6l1-5.8-4.3-4.1 5.9-.9z"/>
+</symbol>
+</defs>
+</svg>
+
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark"><svg class="icon"><use href="#i-qr"></use></svg></div>
+      <h1>QR Studio</h1>
+    </div>
+  </header>
+
+  <!-- SCAN -->
+  <section id="screen-scan" class="screen">
+    <div class="scan-stage">
+      <video id="scan-video" playsinline muted hidden></video>
+      <div class="scan-frame" hidden></div>
+      <div class="scan-hint" hidden data-i18n="scan_point_hint">Point your camera at a QR code</div>
+      <div class="scan-controls" hidden>
+        <button class="icon-btn" id="btn-flash" type="button" aria-label="Toggle flashlight"><svg class="icon"><use href="#i-flash"></use></svg></button>
+        <button class="icon-btn" id="btn-flip-cam" type="button" aria-label="Flip camera"><svg class="icon"><use href="#i-flip"></use></svg></button>
+      </div>
+      <div class="scan-idle" id="scan-idle">
+        <svg class="icon"><use href="#i-camera"></use></svg>
+        <button class="btn btn-primary" id="btn-start-scan" type="button">
+          <svg class="icon"><use href="#i-camera"></use></svg> <span data-i18n="scan_start_camera">Start Camera</span>
+        </button>
+        <p data-i18n="scan_hint_privacy">Your camera is only used to read the code on screen — nothing is uploaded anywhere.</p>
+      </div>
+    </div>
+    <div class="scan-actions">
+      <button class="btn btn-secondary" id="btn-upload-scan" type="button">
+        <svg class="icon"><use href="#i-image"></use></svg> <span data-i18n="scan_from_photo">Scan from Photo</span>
+      </button>
+      <input type="file" id="file-scan" accept="image/*" hidden>
+    </div>
+
+    <div class="result-card" id="scan-result" hidden>
+      <span class="type-chip"><svg class="icon" style="width:13px;height:13px"><use href="#i-link"></use></svg><span>Website</span></span>
+      <div class="value"></div>
+      <div class="row-actions"></div>
+      <div style="margin-top:12px">
+        <button class="btn btn-ghost btn-sm" id="btn-scan-again" type="button" style="padding-left:0">
+          <svg class="icon" style="width:16px;height:16px"><use href="#i-camera"></use></svg> <span data-i18n="scan_another">Scan another code</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="ad-slot">Ad space (banner)</div>
+  </section>
+
+  <!-- CREATE -->
+  <section id="screen-create" class="screen active">
+    <div class="type-scroll" id="type-scroll"></div>
+    <div class="section-pad" id="create-fields"></div>
+    <div class="section-pad">
+      <button class="btn btn-primary" id="btn-generate" type="button" style="width:100%">
+        <svg class="icon"><use href="#i-qr"></use></svg> <span data-i18n="btn_generate">Generate QR Code</span>
+      </button>
+    </div>
+    <div class="qr-preview-wrap">
+      <div class="qr-empty" id="qr-empty" data-i18n="qr_empty_placeholder">Your QR code preview will appear here</div>
+      <canvas id="qr-canvas" hidden></canvas>
+      <div class="row-actions" id="qr-actions" hidden style="margin-top:16px;width:100%">
+        <button class="btn btn-secondary" id="btn-download-qr" type="button"><svg class="icon"><use href="#i-download"></use></svg> <span data-i18n="btn_download">Download</span></button>
+        <button class="btn btn-secondary" id="btn-share-qr" type="button"><svg class="icon"><use href="#i-share"></use></svg> <span data-i18n="btn_share">Share</span></button>
+      </div>
+    </div>
+    <div class="ad-slot">Ad space (banner)</div>
+  </section>
+
+  <!-- HISTORY -->
+  <section id="screen-history" class="screen">
+    <div class="history-list" id="history-list"></div>
+    <div class="ad-slot">Ad space (banner)</div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section id="screen-settings" class="screen">
+    <div class="upgrade-card" id="upgrade-card">
+      <h3 data-i18n="upgrade_title">QR Studio Pro</h3>
+      <p data-i18n="upgrade_sub">No ads, plus unlimited tracked QR codes with scan analytics.</p>
+      <button class="btn" id="btn-upgrade" type="button" data-i18n="upgrade_btn">Upgrade — $4.99</button>
+    </div>
+
+    <div class="settings-title" data-i18n="settings_appearance">Appearance</div>
+    <div class="settings-group">
+      <div class="settings-row">
+        <div class="s-icon"><svg class="icon"><use href="#i-moon"></use></svg></div>
+        <div class="s-label" data-i18n="settings_dark_mode">Dark mode</div>
+        <button class="switch" id="sw-dark" type="button" aria-label="Toggle dark mode"></button>
+      </div>
+      <div class="settings-row">
+        <div class="s-icon"><svg class="icon"><use href="#i-text"></use></svg></div>
+        <div class="s-label" data-i18n="settings_language">Language</div>
+        <select id="sel-language" class="lang-select"></select>
+      </div>
+    </div>
+
+    <div class="settings-title" data-i18n="settings_general">General</div>
+    <div class="settings-group">
+      <div class="settings-row">
+        <div class="s-icon"><svg class="icon"><use href="#i-sliders"></use></svg></div>
+        <div class="s-label" data-i18n="settings_vibration">Vibration on scan</div>
+        <button class="switch" id="sw-haptics" type="button" aria-label="Toggle vibration"></button>
+      </div>
+      <div class="settings-row" id="btn-clear-history" style="cursor:pointer">
+        <div class="s-icon"><svg class="icon"><use href="#i-trash"></use></svg></div>
+        <div class="s-label" data-i18n="settings_clear_history">Clear history</div>
+      </div>
+    </div>
+
+    <div class="settings-title" data-i18n="settings_about">About</div>
+    <div class="settings-group">
+      <div class="settings-row" id="btn-rate" style="cursor:pointer">
+        <div class="s-icon"><svg class="icon"><use href="#i-star"></use></svg></div>
+        <div class="s-label" data-i18n="settings_rate">Rate QR Studio</div>
+      </div>
+      <div class="settings-row" id="btn-privacy" style="cursor:pointer">
+        <div class="s-icon"><svg class="icon"><use href="#i-text"></use></svg></div>
+        <div class="s-label" data-i18n="settings_privacy">Privacy Policy</div>
+      </div>
+      <div class="settings-row" id="btn-feedback" style="cursor:pointer">
+        <div class="s-icon"><svg class="icon"><use href="#i-mail"></use></svg></div>
+        <div class="s-label" data-i18n="settings_feedback">Send Feedback</div>
+      </div>
+      <div class="settings-row">
+        <div class="s-icon"><svg class="icon"><use href="#i-check"></use></svg></div>
+        <div class="s-label"><span data-i18n="settings_version">Version</span> <span class="s-sub" style="margin-left:6px">1.0.0</span></div>
+      </div>
+    </div>
+    <div class="privacy-link">© 2026 QR Studio — Made by Ali Zafar · <a href="blog/" style="color:inherit">Blog</a></div>
+  </section>
+
+  <nav class="tabbar">
+    <button class="tab active" data-screen="create" type="button"><svg class="icon"><use href="#i-qr"></use></svg><span data-i18n="nav_create">Create</span></button>
+    <button class="tab" data-screen="scan" type="button"><svg class="icon"><use href="#i-camera"></use></svg><span data-i18n="nav_scan">Scan</span></button>
+    <button class="tab" data-screen="history" type="button"><svg class="icon"><use href="#i-clock"></use></svg><span data-i18n="nav_history">History</span></button>
+    <button class="tab" data-screen="settings" type="button"><svg class="icon"><use href="#i-sliders"></use></svg><span data-i18n="nav_settings">Settings</span></button>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="sheet-backdrop" id="sheet-backdrop">
+    <div class="sheet" id="sheet-content"></div>
+  </div>
+</div>
+
+<script src="js/lib/jsqr.min.js"></script>
+<script src="js/lib/qrcode.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

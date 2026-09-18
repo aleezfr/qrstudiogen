@@ -63,16 +63,31 @@
   // so the rest of the app never talks to an ad SDK directly.
   var AdsBridge = {
     isPremium: function () { return localStorage.getItem("sk-premium") === "1"; },
+    // No ad slot is ever shown until a real ad has actually loaded — this avoids
+    // empty "Ad space" placeholder boxes in the UI. adLoaded stays false until a
+    // native ad SDK (Capacitor/native shell) calls markAdLoaded() for a real ad unit.
+    adLoaded: false,
     initBanner: function () {
-      if (this.isPremium()) return;
+      if (this.isPremium()) { hideAllAdSlots(); return; }
       // Real AdMob rendering needs a native Android layer (Capacitor/native shell) —
       // not possible inside a pure TWA wrapper. AD_UNITS.banner is ready for that.
+      // Until a native build calls markAdLoaded(slotId), keep slots hidden.
+      hideAllAdSlots();
+    },
+    markAdLoaded: function (slotId) {
+      this.adLoaded = true;
+      if (this.isPremium()) return;
+      var slot = document.getElementById(slotId);
+      if (slot) slot.hidden = false;
     },
     showInterstitial: function () {
       if (this.isPremium()) return;
       // Same as above — AD_UNITS.interstitial is ready for a native build.
     }
   };
+  function hideAllAdSlots() {
+    $all(".ad-slot").forEach(function (n) { n.hidden = true; });
+  }
   // Google Play Billing via the Digital Goods API — this DOES work inside a TWA
   // (no native code needed), as long as the .aab was packaged with Play Billing
   // support enabled and the product id below is created in Play Console.
@@ -262,8 +277,36 @@
       $(".scan-hint").hidden = false;
       loopScan();
     }).catch(function (err) {
-      toast(I18N.t("toast_camera_denied"));
+      handleCameraError(err);
     });
+  }
+  function handleCameraError(err) {
+    var name = err && err.name;
+    if (name === "NotAllowedError" || name === "PermissionDeniedError") {
+      showCameraPermissionHelp();
+    } else if (name === "NotFoundError" || name === "DevicesNotFoundError") {
+      toast(I18N.t("toast_camera_unavailable"));
+    } else if (name === "NotReadableError" || name === "TrackStartError") {
+      toast(I18N.t("toast_camera_in_use") || "Camera is in use by another app. Close it and try again.");
+    } else {
+      toast(I18N.t("toast_camera_denied"));
+    }
+  }
+  function showCameraPermissionHelp() {
+    var backdrop = $("#sheet-backdrop");
+    var sheet = $("#sheet-content");
+    sheet.innerHTML = "";
+    sheet.appendChild(el("h3", { text: I18N.t("camera_denied_title") || "Camera access is blocked" }));
+    var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+    var steps = isIOS
+      ? (I18N.t("camera_denied_ios") || "Open Settings → Safari (or this browser) → Camera, and allow access for this site. Then reload the page.")
+      : (I18N.t("camera_denied_other") || "Click the lock/site-info icon in your browser's address bar, allow Camera access for this site, then reload the page.");
+    sheet.appendChild(el("p", { text: steps }));
+    var actions = el("div", { class: "row-actions" });
+    actions.appendChild(makeBtn(I18N.t("btn_cancel") || "Close", "close", "btn-secondary", closeSheet));
+    actions.appendChild(makeBtn(I18N.t("btn_try_again") || "Try Again", "camera", "btn-primary", function () { closeSheet(); startCamera(); }));
+    sheet.appendChild(actions);
+    backdrop.classList.add("show");
   }
   function stopCamera() {
     if (scanState.raf) cancelAnimationFrame(scanState.raf);
@@ -695,7 +738,9 @@
   }
   function refreshPremiumUI() {
     var isPremium = AdsBridge.isPremium();
-    $all(".ad-slot").forEach(function (n) { n.hidden = isPremium; });
+    // Ad slots are only ever shown once a real ad has loaded (see AdsBridge.markAdLoaded);
+    // premium users never see them regardless.
+    if (isPremium) hideAllAdSlots();
     var card = $("#upgrade-card");
     if (card) card.hidden = isPremium;
   }

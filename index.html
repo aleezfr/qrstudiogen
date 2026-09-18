@@ -13,30 +13,31 @@
 <meta charset="utf-8">
 <meta name="google-site-verification" content="npxNkIAEqGh9HVTb2X1JfktKl0dsZ-Eme610bR7GVUo" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
-<title>QR Studio — QR Code Generator & Scanner</title>
-<meta name="description" content="Scan any QR code instantly and create your own — for links, Wi-Fi, contacts, and more. Fast, private, and works offline.">
-<link rel="canonical" href="https://fantastic-sunburst-6b52a4.netlify.app/">
+<title>Free QR Code Generator & QR Code Scanner Online — Custom QR Studio</title>
+<meta name="description" content="Free QR code generator and QR code scanner online — no app, no signup. Create custom QR codes for links, WiFi, contacts and more with QR Studio in seconds.">
+<meta name="keywords" content="Free QR Code Generator, QR Code Scanner Online, Custom QR Studio, QR code generator, QR code scanner, WiFi QR code, create QR code free">
+<link rel="canonical" href="https://qrstudiogen.netlify.app/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="QR Studio">
-<meta property="og:title" content="QR Studio — QR Code Generator & Scanner">
-<meta property="og:description" content="Scan any QR code instantly and create your own — for links, Wi-Fi, contacts, and more. Fast, private, and works offline.">
-<meta property="og:url" content="https://fantastic-sunburst-6b52a4.netlify.app/">
-<meta property="og:image" content="https://fantastic-sunburst-6b52a4.netlify.app/icons/icon-512.png">
+<meta property="og:title" content="Free QR Code Generator & QR Code Scanner Online — QR Studio">
+<meta property="og:description" content="Create custom QR codes free and scan any QR code online — no app, no signup. Fast, private, and works offline.">
+<meta property="og:url" content="https://qrstudiogen.netlify.app/">
+<meta property="og:image" content="https://qrstudiogen.netlify.app/icons/icon-512.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QR Studio — QR Code Generator & Scanner">
-<meta name="twitter:description" content="Scan any QR code instantly and create your own — for links, Wi-Fi, contacts, and more. Fast, private, and works offline.">
-<meta name="twitter:image" content="https://fantastic-sunburst-6b52a4.netlify.app/icons/icon-512.png">
+<meta name="twitter:title" content="Free QR Code Generator & QR Code Scanner Online — QR Studio">
+<meta name="twitter:description" content="Create custom QR codes free and scan any QR code online — no app, no signup. Fast, private, and works offline.">
+<meta name="twitter:image" content="https://qrstudiogen.netlify.app/icons/icon-512.png">
 <meta name="theme-color" content="#2563EB">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "QR Studio",
-  "url": "https://fantastic-sunburst-6b52a4.netlify.app/",
-  "description": "Scan any QR code instantly and create your own — for links, Wi-Fi, contacts, and more. Fast, private, and works offline.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
+  "url": "https://qrstudiogen.netlify.app/",
+  "description": "Free QR code generator and QR code scanner online — no app, no signup. Create custom QR codes for links, WiFi, contacts and more with QR Studio in seconds.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -153,10 +154,6 @@
   <path d="M20 12a8 8 0 0 1-13.9 5.5L4 15.5"/>
   <path d="M4 19.5v-4h4"/>
 </symbol>
-<symbol id="i-sun" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="12" cy="12" r="4"/>
-  <path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"/>
-</symbol>
 <symbol id="i-moon" viewBox="0 0 24 24" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path d="M20 13.6A8.2 8.2 0 1 1 10.4 4a6.6 6.6 0 0 0 9.6 9.6z"/>
 </symbol>
@@ -169,138 +166,145 @@
 <div id="app">
   <header class="topbar">
     <div class="brand">
-      <div class="brand-mark"><svg class="icon"><use href="#i-qr"></use></svg></div>
+      <div class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#i-qr"></use></svg></div>
       <h1>QR Studio</h1>
     </div>
   </header>
 
   <!-- SCAN -->
-  <section id="screen-scan" class="screen">
+  <section id="screen-scan" class="screen" aria-labelledby="h-scan">
+    <h2 id="h-scan" class="sr-only" data-i18n="nav_scan">QR Code Scanner</h2>
     <div class="scan-stage">
       <video id="scan-video" playsinline muted hidden></video>
       <div class="scan-frame" hidden></div>
       <div class="scan-hint" hidden data-i18n="scan_point_hint">Point your camera at a QR code</div>
       <div class="scan-controls" hidden>
-        <button class="icon-btn" id="btn-flash" type="button" aria-label="Toggle flashlight"><svg class="icon"><use href="#i-flash"></use></svg></button>
-        <button class="icon-btn" id="btn-flip-cam" type="button" aria-label="Flip camera"><svg class="icon"><use href="#i-flip"></use></svg></button>
+        <button class="icon-btn" id="btn-flash" type="button" aria-label="Toggle flashlight"><svg class="icon" aria-hidden="true"><use href="#i-flash"></use></svg></button>
+        <button class="icon-btn" id="btn-flip-cam" type="button" aria-label="Flip camera"><svg class="icon" aria-hidden="true"><use href="#i-flip"></use></svg></button>
       </div>
       <div class="scan-idle" id="scan-idle">
-        <svg class="icon"><use href="#i-camera"></use></svg>
-        <button class="btn btn-primary" id="btn-start-scan" type="button">
-          <svg class="icon"><use href="#i-camera"></use></svg> <span data-i18n="scan_start_camera">Start Camera</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-camera"></use></svg>
+        <button class="btn btn-primary" id="btn-start-scan" type="button" aria-label="Start camera to scan a QR code">
+          <svg class="icon" aria-hidden="true"><use href="#i-camera"></use></svg> <span data-i18n="scan_start_camera">Start Camera</span>
         </button>
         <p data-i18n="scan_hint_privacy">Your camera is only used to read the code on screen — nothing is uploaded anywhere.</p>
       </div>
     </div>
     <div class="scan-actions">
-      <button class="btn btn-secondary" id="btn-upload-scan" type="button">
-        <svg class="icon"><use href="#i-image"></use></svg> <span data-i18n="scan_from_photo">Scan from Photo</span>
+      <button class="btn btn-secondary" id="btn-upload-scan" type="button" aria-label="Scan a QR code from a photo">
+        <svg class="icon" aria-hidden="true"><use href="#i-image"></use></svg> <span data-i18n="scan_from_photo">Scan from Photo</span>
       </button>
-      <input type="file" id="file-scan" accept="image/*" hidden>
+      <input type="file" id="file-scan" accept="image/*" hidden aria-label="Choose a photo containing a QR code">
     </div>
 
     <div class="result-card" id="scan-result" hidden>
-      <span class="type-chip"><svg class="icon" style="width:13px;height:13px"><use href="#i-link"></use></svg><span>Website</span></span>
+      <span class="type-chip"><svg class="icon" style="width:13px;height:13px" aria-hidden="true"><use href="#i-link"></use></svg><span>Website</span></span>
       <div class="value"></div>
       <div class="row-actions"></div>
       <div style="margin-top:12px">
-        <button class="btn btn-ghost btn-sm" id="btn-scan-again" type="button" style="padding-left:0">
-          <svg class="icon" style="width:16px;height:16px"><use href="#i-camera"></use></svg> <span data-i18n="scan_another">Scan another code</span>
+        <button class="btn btn-ghost btn-sm" id="btn-scan-again" type="button" style="padding-left:0" aria-label="Scan another QR code">
+          <svg class="icon" style="width:16px;height:16px" aria-hidden="true"><use href="#i-camera"></use></svg> <span data-i18n="scan_another">Scan another code</span>
         </button>
       </div>
     </div>
 
-    <div class="ad-slot">Ad space (banner)</div>
+    <div class="ad-slot" id="ad-slot-scan" hidden></div>
   </section>
 
   <!-- CREATE -->
-  <section id="screen-create" class="screen active">
+  <section id="screen-create" class="screen active" aria-labelledby="h-create">
+    <h2 id="h-create" class="sr-only" data-i18n="nav_create">Create a QR Code</h2>
     <div class="type-scroll" id="type-scroll"></div>
     <div class="section-pad" id="create-fields"></div>
     <div class="section-pad">
       <button class="btn btn-primary" id="btn-generate" type="button" style="width:100%">
-        <svg class="icon"><use href="#i-qr"></use></svg> <span data-i18n="btn_generate">Generate QR Code</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-qr"></use></svg> <span data-i18n="btn_generate">Generate QR Code</span>
       </button>
     </div>
     <div class="qr-preview-wrap">
-      <div class="qr-empty" id="qr-empty" data-i18n="qr_empty_placeholder">Your QR code preview will appear here</div>
+      <div class="qr-empty" id="qr-empty">
+        <svg class="icon" aria-hidden="true"><use href="#i-qr"></use></svg>
+        <p data-i18n="qr_empty_placeholder">Your QR code preview will appear here</p>
+      </div>
       <canvas id="qr-canvas" hidden></canvas>
       <div class="row-actions" id="qr-actions" hidden style="margin-top:16px;width:100%">
-        <button class="btn btn-secondary" id="btn-download-qr" type="button"><svg class="icon"><use href="#i-download"></use></svg> <span data-i18n="btn_download">Download</span></button>
-        <button class="btn btn-secondary" id="btn-share-qr" type="button"><svg class="icon"><use href="#i-share"></use></svg> <span data-i18n="btn_share">Share</span></button>
+        <button class="btn btn-secondary" id="btn-download-qr" type="button" aria-label="Download QR code as image"><svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg> <span data-i18n="btn_download">Download</span></button>
+        <button class="btn btn-secondary" id="btn-share-qr" type="button" aria-label="Share QR code"><svg class="icon" aria-hidden="true"><use href="#i-share"></use></svg> <span data-i18n="btn_share">Share</span></button>
       </div>
     </div>
-    <div class="ad-slot">Ad space (banner)</div>
+    <div class="ad-slot" id="ad-slot-create" hidden></div>
   </section>
 
   <!-- HISTORY -->
-  <section id="screen-history" class="screen">
+  <section id="screen-history" class="screen" aria-labelledby="h-history">
+    <h2 id="h-history" class="sr-only" data-i18n="nav_history">QR Code History</h2>
     <div class="history-list" id="history-list"></div>
-    <div class="ad-slot">Ad space (banner)</div>
+    <div class="ad-slot" id="ad-slot-history" hidden></div>
   </section>
 
   <!-- SETTINGS -->
-  <section id="screen-settings" class="screen">
+  <section id="screen-settings" class="screen" aria-labelledby="h-settings">
+    <h2 id="h-settings" class="sr-only" data-i18n="nav_settings">Settings</h2>
     <div class="upgrade-card" id="upgrade-card">
       <h3 data-i18n="upgrade_title">QR Studio Pro</h3>
       <p data-i18n="upgrade_sub">No ads, plus unlimited tracked QR codes with scan analytics.</p>
       <button class="btn" id="btn-upgrade" type="button" data-i18n="upgrade_btn">Upgrade — $4.99</button>
     </div>
 
-    <div class="settings-title" data-i18n="settings_appearance">Appearance</div>
+    <h3 class="settings-title" data-i18n="settings_appearance">Appearance</h3>
     <div class="settings-group">
       <div class="settings-row">
-        <div class="s-icon"><svg class="icon"><use href="#i-moon"></use></svg></div>
+        <div class="s-icon" aria-hidden="true"><svg class="icon"><use href="#i-moon"></use></svg></div>
         <div class="s-label" data-i18n="settings_dark_mode">Dark mode</div>
         <button class="switch" id="sw-dark" type="button" aria-label="Toggle dark mode"></button>
       </div>
       <div class="settings-row">
-        <div class="s-icon"><svg class="icon"><use href="#i-text"></use></svg></div>
-        <div class="s-label" data-i18n="settings_language">Language</div>
-        <select id="sel-language" class="lang-select"></select>
+        <div class="s-icon" aria-hidden="true"><svg class="icon"><use href="#i-text"></use></svg></div>
+        <label class="s-label" for="sel-language" data-i18n="settings_language">Language</label>
+        <select id="sel-language" class="lang-select" aria-label="Select language"></select>
       </div>
     </div>
 
-    <div class="settings-title" data-i18n="settings_general">General</div>
+    <h3 class="settings-title" data-i18n="settings_general">General</h3>
     <div class="settings-group">
       <div class="settings-row">
-        <div class="s-icon"><svg class="icon"><use href="#i-sliders"></use></svg></div>
+        <div class="s-icon" aria-hidden="true"><svg class="icon"><use href="#i-sliders"></use></svg></div>
         <div class="s-label" data-i18n="settings_vibration">Vibration on scan</div>
         <button class="switch" id="sw-haptics" type="button" aria-label="Toggle vibration"></button>
       </div>
-      <div class="settings-row" id="btn-clear-history" style="cursor:pointer">
-        <div class="s-icon"><svg class="icon"><use href="#i-trash"></use></svg></div>
+      <button class="settings-row" id="btn-clear-history" type="button">
+        <div class="s-icon" aria-hidden="true"><svg class="icon"><use href="#i-trash"></use></svg></div>
         <div class="s-label" data-i18n="settings_clear_history">Clear history</div>
-      </div>
+      </button>
     </div>
 
-    <div class="settings-title" data-i18n="settings_about">About</div>
+    <h3 class="settings-title" data-i18n="settings_about">About</h3>
     <div class="settings-group">
-      <div class="settings-row" id="btn-rate" style="cursor:pointer">
-        <div class="s-icon"><svg class="icon"><use href="#i-star"></use></svg></div>
+      <button class="settings-row" id="btn-rate" type="button">
+        <div class="s-icon" aria-hidden="true"><svg class="icon"><use href="#i-star"></use></svg></div>
         <div class="s-label" data-i18n="settings_rate">Rate QR Studio</div>
-      </div>
-      <div class="settings-row" id="btn-privacy" style="cursor:pointer">
-        <div class="s-icon"><svg class="icon"><use href="#i-text"></use></svg></div>
+      </button>
+      <button class="settings-row" id="btn-privacy" type="button">
+        <div class="s-icon" aria-hidden="true"><svg class="icon"><use href="#i-text"></use></svg></div>
         <div class="s-label" data-i18n="settings_privacy">Privacy Policy</div>
-      </div>
-      <div class="settings-row" id="btn-feedback" style="cursor:pointer">
-        <div class="s-icon"><svg class="icon"><use href="#i-mail"></use></svg></div>
+      </button>
+      <button class="settings-row" id="btn-feedback" type="button">
+        <div class="s-icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"></use></svg></div>
         <div class="s-label" data-i18n="settings_feedback">Send Feedback</div>
-      </div>
+      </button>
       <div class="settings-row">
-        <div class="s-icon"><svg class="icon"><use href="#i-check"></use></svg></div>
+        <div class="s-icon" aria-hidden="true"><svg class="icon"><use href="#i-check"></use></svg></div>
         <div class="s-label"><span data-i18n="settings_version">Version</span> <span class="s-sub" style="margin-left:6px">1.0.0</span></div>
       </div>
     </div>
     <div class="privacy-link">© 2026 QR Studio — Made by Ali Zafar · <a href="blog/" style="color:inherit">Blog</a></div>
   </section>
 
-  <nav class="tabbar">
-    <button class="tab active" data-screen="create" type="button"><svg class="icon"><use href="#i-qr"></use></svg><span data-i18n="nav_create">Create</span></button>
-    <button class="tab" data-screen="scan" type="button"><svg class="icon"><use href="#i-camera"></use></svg><span data-i18n="nav_scan">Scan</span></button>
-    <button class="tab" data-screen="history" type="button"><svg class="icon"><use href="#i-clock"></use></svg><span data-i18n="nav_history">History</span></button>
-    <button class="tab" data-screen="settings" type="button"><svg class="icon"><use href="#i-sliders"></use></svg><span data-i18n="nav_settings">Settings</span></button>
+  <nav class="tabbar" aria-label="Main navigation">
+    <button class="tab active" data-screen="create" type="button" aria-label="Create a QR code"><svg class="icon" aria-hidden="true"><use href="#i-qr"></use></svg><span data-i18n="nav_create">Create</span></button>
+    <button class="tab" data-screen="scan" type="button" aria-label="Scan a QR code"><svg class="icon" aria-hidden="true"><use href="#i-camera"></use></svg><span data-i18n="nav_scan">Scan</span></button>
+    <button class="tab" data-screen="history" type="button" aria-label="View QR code history"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><span data-i18n="nav_history">History</span></button>
+    <button class="tab" data-screen="settings" type="button" aria-label="Open settings"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg><span data-i18n="nav_settings">Settings</span></button>
   </nav>
 
   <div class="toast" id="toast"></div>

@@ -39,6 +39,10 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
 html, body { height: 100%; }
 body {
   margin: 0;
@@ -217,7 +221,12 @@ button { font-family: inherit; }
   align-items: center; box-shadow: var(--shadow-sm);
 }
 .qr-preview-wrap canvas { border-radius: 10px; max-width: 100%; height: auto; }
-.qr-empty { color: var(--text-faint); font-size: 13px; text-align: center; padding: 40px 10px; }
+.qr-empty {
+  color: var(--text-faint); text-align: center; padding: 30px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.qr-empty .icon { width: 34px; height: 34px; opacity: .35; }
+.qr-empty p { margin: 0; font-size: 13px; max-width: 220px; }
 
 /* History */
 .history-list { padding: 8px 18px 0; display: flex; flex-direction: column; gap: 10px; }
@@ -241,8 +250,14 @@ button { font-family: inherit; }
 
 /* Settings */
 .settings-group { margin: 18px 18px 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
-.settings-row { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.settings-row {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--border);
+  width: 100%; background: none; border-left: none; border-right: none; border-top: none;
+  font-family: inherit; text-align: left; color: inherit;
+}
+button.settings-row { -webkit-appearance: none; appearance: none; cursor: pointer; }
 .settings-row:last-child { border-bottom: none; }
+button.settings-row:active { background: var(--surface-2); }
 .settings-row .s-icon { width: 32px; height: 32px; border-radius: 9px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; color: var(--text-muted); flex: none; }
 .settings-row .s-icon .icon { width: 17px; height: 17px; }
 .settings-row .s-label { flex: 1; font-size: 14px; font-weight: 600; }
